@@ -5,7 +5,9 @@ const port = 3000;
 
 const app = express();
 
-
+var md5 = require('md5');
+ 
+console.log(md5('message'));
 
 app.use(bodyParser.json());
 

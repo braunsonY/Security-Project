@@ -7,6 +7,8 @@ const md5 = require("md5")
 const port = 443;
 const app = express();
 const fs = require('fs')
+
+app.use(express.static('public'));
  
 app.use(bodyParser.json());
 
@@ -21,12 +23,9 @@ https
       cert: fs.readFileSync("server.cert"),
       passphrase: ("P@ssw0rd")
     },
-    app
-  )
-  .listen(443, () => {
+    app).listen(443, () => {
     console.log("Listening...");
   });
-
 
 
 app.post("/login", (req, res) => {
